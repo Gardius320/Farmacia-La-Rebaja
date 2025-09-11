@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes - Droguería</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="reportes.js" defer></script>
+  <style>
+    body { background: #f8f9fa; font-family: 'Poppins', sans-serif; }
+
+    .contenedor {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #410efa;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #f1f1f1;
+      margin: 6px 0;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    }
+
+    .agotado { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>📊 Reportes</h2>
+
+    <h3>Ventas realizadas</h3>
+    <ul id="listaVentas"></ul>
+
+    <h3>Productos agotados</h3>
+    <ul id="listaAgotados"></ul>
+
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="drogaslarebaja.html">
+        <button style="padding:10px 20px; border:none; border-radius:8px; background:linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0); color:white; font-weight:bold; cursor:pointer;">
+          ⬅️ Volver al Inicio
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

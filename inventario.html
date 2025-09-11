@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario - Droguería</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="inventario.js" defer></script>
+  <style>
+    body { background: #f8f9fa; font-family: 'Poppins', sans-serif; }
+
+    h2 {
+      text-align: center;
+      color: #410efa;
+      margin: 1.5rem 0;
+    }
+
+    .contenedor {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #410efa;
+      color: #fff;
+    }
+
+    tr:hover {
+      background: #f1f1f1;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    #msgInventario {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>📦 Inventario de Productos</h2>
+    <table id="tablaInventario">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Stock</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p id="msgInventario"></p>
+
+       <div style="text-align:center; margin-top:1.5rem;">
+      <a href="drogaslarebaja.html">
+        <button type="button" style="padding:10px 20px; border:none; border-radius:8px; background:linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0); color:white; font-weight:bold; cursor:pointer;">
+          ⬅️ Volver al Inicio
+        </button>
+      </a>
+    </div>
+  </div> 
+</body>
+</html>
+

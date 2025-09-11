@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f6fa;
+    }
+
+    .main {
+      background: #fff;
+      width: 350px;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      border: 4px solid;
+      border-image: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0) 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #2d3436;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    label {
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input, select {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #dcdde1;
+      margin-bottom: 0.3rem;
+      font-size: 14px;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h2>Registra tu cuenta</h2>
+    <form id="registroForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required />
+      <small id="errorNombre" class="error"></small>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" required />
+      <small id="errorApellido" class="error"></small>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+      <small id="errorEmail" class="error"></small>
+
+      <label for="clave">Contraseña:</label>
+      <input type="password" id="clave" required minlength="4" />
+      <small id="errorClave" class="error"></small>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" maxlength="10" required />
+      <small id="errorTelefono" class="error"></small>
+
+      <label for="genero">Género:</label>
+      <select id="genero" required>
+        <option value="">Seleccione...</option>
+        <option value="Hombre">Hombre</option>
+        <option value="Mujer">Mujer</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <button type="submit">Registrar</button>
+    </form>
+    
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="drogaslarebaja.html">
+        <button type="button" style="padding:10px 20px; border:none; border-radius:8px; background:linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0); color:white; font-weight:bold; cursor:pointer;">
+          ⬅️ Volver al Inicio
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

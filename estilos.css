@@ -1,0 +1,111 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, sans-serif; 
+  background: linear-gradient(150deg, #7AB6F5, #B88FE0);
+  min-height: 100vh;
+}
+
+
+.catalogo {
+  margin: 20px;
+  border: 3px solid #0dcbec;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  display: block;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: rgb(231, 33, 7);
+  text-decoration: underline;
+}
+
+
+.titulo2rojo:hover {
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.categoria-item p {
+  color: black;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.categoria-item:hover p {
+  color: rgb(5, 218, 233);
+  font-size: 1.1rem; 
+}
+
+.categoriatitulo1 {
+  color: black;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 2px solid #0dcbec;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #3b0be9;
+  outline: none;
+}
+
+
+button, .Crear {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+button:hover, .Crear:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droguería Demo</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+    :root {
+      --primary-color: #410efa;
+      --text-dark: #212529;
+      --text-light: #ffffff;
+      --bg-light: #f8f9fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body { background: var(--bg-light); }
+
+    
+    header {
+      background: var(--primary-color);
+      color: var(--text-light);
+      padding: .5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { height: 90px; }
+
+    .search-bar { flex: 1; margin: 0 1rem; position: relative; }
+    .search-bar input {
+      width: 100%; padding: .5rem 3rem .5rem 1rem;
+      border-radius: 9999px; border: none;
+    }
+    .search-bar button {
+      position: absolute; right: .5rem; top: 50%; transform: translateY(-50%);
+      background: none; border: none; font-size: 1.25rem; color: var(--primary-color); cursor: pointer;
+    }
+
+   
+    nav { background: #5dabcf; padding: .5rem 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+    nav a { color: var(--primary-color); text-decoration: none; font-size: .9rem; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+
+    
+    .hero { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem 1.5rem; }
+    .hero img { width: 100%; height: 200px; object-fit: cover; border-radius: .5rem; }
+
+    
+    .categorias { padding: 2rem 1.5rem; text-align: center; }
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .categoria-item {
+      background: #fff;
+      width: 180px; height: 200px;
+      padding: 1rem; border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      border: 4px solid;
+      border-image: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0)1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      margin: auto;
+    }
+    .categoria-item img {
+      width: 80px; height: 80px;
+      border-radius: 50%; object-fit: cover;
+      margin-bottom: .5rem;
+    }
+    .categoria-item p {
+      font-weight: 700; color: #333;
+      font-size: .95rem; text-align:center;
+    }
+
+    
+    .asesoria { padding: 2rem 1.5rem; display: flex; justify-content: center; }
+    .asesoria-box {
+      background:#fff; padding:1rem; display:flex; gap:1rem;
+      border-radius:1rem; box-shadow:0 4px 12px rgba(0,0,0,.1);
+      max-width:900px; align-items:center;
+    }
+    .asesoria-box img {
+      width:220px; height:140px;
+      border-radius:.5rem; object-fit:cover;
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <img src="imagenes/Sin_fondo.jpg" alt="Logo de la empresa" class="logo">
+    <div class="search-bar">
+      <input type="text" placeholder="¿Qué estás buscando?">
+      <button aria-label="Buscar">🔍</button>
+    </div>
+    <div style="text-align:right;">
+      <img src="login.png" alt="Login" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+      <a href="registro.html" id="miCuenta" style="color:var(--text-light);font-weight:600;text-decoration:none;">Mi cuenta</a>
+    </div>
+  </header>
+
+  
+  <nav class="catalogo">
+    <a href="#" class="promoRoja">🏷️ Rebajón de Precios</a>
+    <a href="#">Mundo L'Oréal</a>
+    <a href="#">🧔‍♂️ Detalles para Papá</a>
+    <a href="#">🎒 Kit de Viaje</a>
+    <a href="#">👫 Parche de Amigos</a>
+    <a href="#">🧴 Higiene Personal</a>
+    <a href="#">🛡️ Fortalece Tus Defensas</a>
+    <a href="#">🏋️ Nutrición para el Cuerpo</a>
+    <a href="#">🚀 ¡Oferta del Mes!</a>
+    <a href="#">💊 Salud y Medicamentos</a>
+    
+    <a href="registro.html">👤 Registro de Usuarios</a>
+    <a href="inventario.html">📦 Inventario</a>
+    <a href="reportes.html">📊 Reportes</a>
+  </nav>
+
+  
+  <section class="hero">
+    <div class="main-banner"><img src="imagenes/Banner_principal_pagina.jpg" alt="Banner principal"></div>
+    <div class="side-banner"><img src="imagenes/Banner_secundario.jpg" alt="Banner secundario"></div>
+  </section>
+
+  
+  <section class="categorias">
+    <h2 class="titulo2rojo" style="font-size:2rem;margin-bottom:1.5rem;color:var(--primary-color);">Categorías</h2>
+
+    <div class="categorias-grid">      
+      <div class="categoria-item"><img src="imagenes/farmacia.jpg" alt="Farmacia"><p>Farmacia</p></div>
+      <div class="categoria-item"><img src="imagenes/Maternidad_y_bebes.jpg" alt="Maternidad y Bebés"><p>Maternidad y Bebés</p></div>
+      <div class="categoria-item"><img src="imagenes/Dermatologicos.jpg" alt="Dermocosmética"><p>Dermocosmética</p></div>
+      <div class="categoria-item"><img src="imagenes/Belleza.jpg" alt="Belleza"><p>Belleza</p></div>
+      <div class="categoria-item"><img src="imagenes/Aseo_y_cuidado_personal.jpg" alt="Aseo y Cuidado Personal"><p>Aseo y Cuidado Personal</p></div>
+      <div class="categoria-item"><img src="imagenes/Naturales_y_homeopaticos.jpg" alt="Naturales y Homeopáticos"><p>Naturales y Homeopáticos</p></div>
+      <div class="categoria-item"><img src="imagenes/Alimentos_y_bebidas.jpg" alt="Alimentos y Bebidas"><p>Alimentos y Bebidas</p></div>
+      <div class="categoria-item"><img src="imagenes/suplementos.jpg" alt="Suplementos"><p>Suplementos y Vitaminas</p></div>
+      <div cla
