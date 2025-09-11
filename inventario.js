@@ -4,12 +4,30 @@ document.addEventListener("DOMContentLoaded", () => {
     { producto: "Ibuprofeno", stock: 8 },
     { producto: "Jarabe para la tos", stock: 5 },
     { producto: "Vitaminas C", stock: 12 },
-    { producto: "Alcohol Antiséptico", stock: 6 }
+    { producto: "Alcohol Antiséptico", stock: 6 },
+    { producto: "Omeprazol 20mg", stock: 120 },
+    { producto: " Vendas Elásticas", stock: 21 },
+    { producto: "Antibiótico Tópico", stock: 15 },
+    { producto: "Crema para Quemaduras", stock: 9 },
+    { producto: "Antihistamínicos", stock: 14 },
+    { producto: "Termómetro Digital", stock: 7 },
+    { producto: "Multivitamínico Centrum", stock: 11}
   ];
 
-  let inventario = JSON.parse(localStorage.getItem("inventario")) || inventarioInicial;
-  const tabla = document.querySelector("#tablaInventario tbody");
-  const msgInventario = document.getElementById("msgInventario");
+  
+let inventarioGuardado = JSON.parse(localStorage.getItem("inventario")) || [];
+inventarioInicial.forEach(item => {
+  const existe = inventarioGuardado.some(p => p.producto === item.producto);
+  if (!existe) {
+    inventarioGuardado.push(item); 
+  }
+});
+
+localStorage.setItem("inventario", JSON.stringify(inventarioGuardado));
+let inventario = inventarioGuardado;
+const tabla = document.querySelector("#tablaInventario tbody");
+const msgInventario = document.getElementById("msgInventario");
+
 
   function renderInventario() {
     tabla.innerHTML = "";
