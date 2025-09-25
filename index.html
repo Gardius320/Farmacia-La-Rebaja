@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="imagenes/Logo.jpg.jpeg">
   <script src="script.js" defer></script>
   
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
@@ -28,18 +27,29 @@
 
     body { background: var(--bg-light); }
 
-    
+    /* Header - MEJORADO */
     header {
       background: var(--primary-color);
       color: var(--text-light);
-      padding: .5rem 1.5rem;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .logo { height: 90px; }
+    .logo { 
+      height: 70px; 
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
 
-    .search-bar { flex: 1; margin: 0 1rem; position: relative; }
+    .search-bar { 
+      flex: 1; 
+      margin: 0 2rem 0 6rem; 
+      position: relative; 
+    }
     .search-bar input {
       width: 100%; padding: .5rem 3rem .5rem 1rem;
       border-radius: 9999px; border: none;
@@ -49,61 +59,318 @@
       background: none; border: none; font-size: 1.25rem; color: var(--primary-color); cursor: pointer;
     }
 
-   
-    nav { background: #5dabcf; padding: .5rem 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
-    nav a { color: var(--primary-color); text-decoration: none; font-size: .9rem; font-weight: 600; }
-    nav a:hover { text-decoration: underline; }
+    /* Navigation - SUBCATEGORÍAS HORIZONTALES EN UNA FILA */
+    nav { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 1rem 2rem; 
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-bottom: 4px solid #87ceeb;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+      justify-content: center;
+    }
 
+    nav::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="40%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+      pointer-events: none;
+    }
     
-    .hero { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem 1.5rem; }
-    .hero img { width: 100%; height: 200px; object-fit: cover; border-radius: .5rem; }
+    nav a { 
+      color: white;
+      text-decoration: none; 
+      font-size: 0.75rem; 
+      font-weight: 700;
+      padding: 0.6rem 1rem;
+      background: rgba(255,255,255,0.15);
+      border-radius: 25px;
+      border: 2px solid rgba(135, 206, 235, 0.4);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      text-align: center;
+      white-space: nowrap;
+    }
 
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
     
-    .categorias { padding: 2rem 1.5rem; text-align: center; }
+    nav a:hover { 
+      background: rgba(255,255,255,0.25);
+      border-color: #87ceeb;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Estilos específicos para diferentes categorías */
+    nav a.promoRoja {
+      background: linear-gradient(45deg, #ff416c, #ff4757);
+      border-color: #ff6b7a;
+      font-weight: 800;
+      animation: pulse 3s infinite;
+      box-shadow: 0 0 20px rgba(255, 65, 108, 0.4);
+    }
+
+    nav a.premium {
+      background: linear-gradient(45deg, #ffd89b, #19547b);
+      border-color: #ffd89b;
+    }
+
+    nav a.health {
+      background: linear-gradient(45deg, #a8edea, #fed6e3);
+      border-color: #a8edea;
+      color: #2c3e50;
+    }
+
+    nav a.beauty {
+      background: linear-gradient(45deg, #d299c2, #fef9d7);
+      border-color: #d299c2;
+      color: #2c3e50;
+    }
+
+    nav a.admin {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-color: #8b9dc3;
+      font-size: 0.7rem;
+    }
+
+    @keyframes pulse {
+      0% { 
+        box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.7),
+                    0 8px 25px rgba(0,0,0,0.3); 
+      }
+      70% { 
+        box-shadow: 0 0 0 15px rgba(255, 65, 108, 0),
+                    0 8px 25px rgba(0,0,0,0.3); 
+      }
+      100% { 
+        box-shadow: 0 0 0 0 rgba(255, 65, 108, 0),
+                    0 8px 25px rgba(0,0,0,0.3); 
+      }
+    }
+
+    /* Hero Section - INICIO MEJORADO */
+    .hero { 
+      display: grid; 
+      grid-template-columns: 2fr 1fr; 
+      gap: 2rem; 
+      padding: 2rem 2rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      pointer-events: none;
+    }
+
+    .main-banner, .side-banner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .main-banner::before, .side-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(65, 14, 250, 0.1), rgba(135, 206, 235, 0.1));
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .main-banner:hover::before, .side-banner:hover::before {
+      opacity: 0;
+    }
+
+    .main-banner:hover, .side-banner:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    
+    .hero img { 
+      width: 100%; 
+      object-fit: cover; 
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .main-banner img {
+      height: 300px;
+    }
+
+    .side-banner img {
+      height: 250px;
+    }
+
+    /* Efectos adicionales para las imágenes */
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Categorías - DIVIDIDAS EN 2 COLUMNAS IGUALES */
+    .categorias { 
+      padding: 2rem 1.5rem; 
+      text-align: center; 
+    }
+
     .categorias-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+      gap: 2rem;
       justify-content: center;
       margin-bottom: 2rem;
+      max-width: 1000px; /* Ancho máximo aumentado */
+      margin: 0 auto 2rem auto; /* Centrar la grilla */
+    }
+
+    .categoria-columna {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 items por columna */
+      gap: 1.5rem;
+      justify-content: center;
     }
 
     .categoria-item {
       background: #fff;
-      width: 180px; height: 200px;
-      padding: 1rem; border-radius: 1rem;
+      width: 180px; 
+      height: 200px;
+      padding: 1rem; 
+      border-radius: 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,.1);
       border: 4px solid;
-      border-image: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0)1;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
+      border-image: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0) 1;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center;
       margin: auto;
-    }
-    .categoria-item img {
-      width: 80px; height: 80px;
-      border-radius: 50%; object-fit: cover;
-      margin-bottom: .5rem;
-    }
-    .categoria-item p {
-      font-weight: 700; color: #333;
-      font-size: .95rem; text-align:center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    
-    .asesoria { padding: 2rem 1.5rem; display: flex; justify-content: center; }
-    .asesoria-box {
-      background:#fff; padding:1rem; display:flex; gap:1rem;
-      border-radius:1rem; box-shadow:0 4px 12px rgba(0,0,0,.1);
-      max-width:900px; align-items:center;
+    .categoria-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
     }
+
+    .categoria-item img {
+      width: 80px; 
+      height: 80px;
+      border-radius: 50%; 
+      object-fit: cover;
+      margin-bottom: .5rem;
+    }
+
+    .categoria-item p {
+      font-weight: 700; 
+      color: #333;
+      font-size: .95rem; 
+      text-align: center;
+    }
+
+    /* Asesoría */
+    .asesoria { 
+      padding: 2rem 1.5rem; 
+      display: flex; 
+      justify-content: center; 
+    }
+    
+    .asesoria-box {
+      background: #fff; 
+      padding: 1rem; 
+      display: flex; 
+      gap: 1rem;
+      border-radius: 1rem; 
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      max-width: 900px; 
+      align-items: center;
+    }
+    
     .asesoria-box img {
-      width:220px; height:140px;
-      border-radius:.5rem; object-fit:cover;
+      width: 220px; 
+      height: 140px;
+      border-radius: .5rem; 
+      object-fit: cover;
+    }
+
+    /* Responsive para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      nav {
+        gap: 0.3rem;
+        padding: 0.8rem 1rem;
+      }
+      
+      nav a {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.8rem;
+      }
+      
+      .categorias-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+      }
+      
+      .categoria-columna {
+        grid-template-columns: repeat(2, 1fr); /* Mantener 2 por fila en móvil */
+        gap: 1rem;
+      }
+      
+      .categoria-item {
+        width: 150px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .categoria-columna {
+        grid-template-columns: 1fr; /* Una por fila en pantallas muy pequeñas */
+        gap: 1rem;
+      }
+      
+      .categoria-item {
+        width: 200px;
+        height: 180px;
+      }
     }
   </style>
 </head>
 <body>
- 
+  <!-- Header - MEJORADO CON LOGO EN ESQUINA -->
   <header>
     <img src="imagenes/Sin_fondo.jpg" alt="Logo de la empresa" class="logo">
     <div class="search-bar">
@@ -116,41 +383,96 @@
     </div>
   </header>
 
-  
+  <!-- Navigation - SUBCATEGORÍAS HORIZONTALES -->
   <nav class="catalogo">
-    <a href="#" class="promoRoja">🏷️ Rebajón de Precios</a>
-    <a href="#">Mundo L'Oréal</a>
-    <a href="#">🧔‍♂️ Detalles para Papá</a>
-    <a href="#">🎒 Kit de Viaje</a>
-    <a href="#">👫 Parche de Amigos</a>
-    <a href="#">🧴 Higiene Personal</a>
-    <a href="#">🛡️ Fortalece Tus Defensas</a>
-    <a href="#">🏋️ Nutrición para el Cuerpo</a>
-    <a href="#">🚀 ¡Oferta del Mes!</a>
-    <a href="#">💊 Salud y Medicamentos</a>
-    
-    <a href="registro.html">👤 Registro de Usuarios</a>
-    <a href="inventario.html">📦 Inventario</a>
-    <a href="reportes.html">📊 Reportes</a>
+    <a href="#" class="promoRoja">🏷️ REBAJÓN DE PRECIOS</a>
+    <a href="#" class="premium">✨ MUNDO L'ORÉAL</a>
+    <a href="#" class="beauty">🧔‍♂️ DETALLES PARA PAPÁ</a>
+    <a href="#" class="health">🎒 KIT DE VIAJE</a>
+    <a href="#" class="beauty">👫 PARCHE DE AMIGOS</a>
+    <a href="#" class="health">🧴 HIGIENE PERSONAL</a>
+    <a href="#" class="health">🛡️ FORTALECE TUS DEFENSAS</a>
+    <a href="#" class="health">🏋️ NUTRICIÓN PARA EL CUERPO</a>
+    <a href="#" class="promoRoja">🚀 ¡OFERTA DEL MES!</a>
+    <a href="#" class="health">💊 SALUD Y MEDICAMENTOS</a>
+    <a href="registro.html" class="admin">👤 REGISTRO DE USUARIOS</a>
+    <a href="inventario.html" class="admin">📦 INVENTARIO</a>
+    <a href="reportes.html" class="admin">📊 REPORTES</a>
   </nav>
 
-  
+  <!-- Hero Section - INICIO PREMIUM MEJORADO -->
   <section class="hero">
-    <div class="main-banner"><img src="imagenes/Banner_principal_pagina.jpg" alt="Banner principal"></div>
-    <div class="side-banner"><img src="imagenes/Banner_secundario.jpg" alt="Banner secundario"></div>
+    <div class="main-banner">
+      <img src="imagenes/Banner_principal_pagina.jpg" alt="Banner principal - Ofertas especiales">
+    </div>
+    <div class="side-banner">
+      <img src="imagenes/Banner_secundario.jpg" alt="Banner secundario - Productos destacados">
+    </div>
   </section>
 
-  
+  <!-- Categorías - DIVIDIDAS EN 2 COLUMNAS IGUALES -->
   <section class="categorias">
     <h2 class="titulo2rojo" style="font-size:2rem;margin-bottom:1.5rem;color:var(--primary-color);">Categorías</h2>
 
-    <div class="categorias-grid">      
-      <div class="categoria-item"><img src="imagenes/farmacia.jpg" alt="Farmacia"><p>Farmacia</p></div>
-      <div class="categoria-item"><img src="imagenes/Maternidad_y_bebes.jpg" alt="Maternidad y Bebés"><p>Maternidad y Bebés</p></div>
-      <div class="categoria-item"><img src="imagenes/Dermatologicos.jpg" alt="Dermocosmética"><p>Dermocosmética</p></div>
-      <div class="categoria-item"><img src="imagenes/Belleza.jpg" alt="Belleza"><p>Belleza</p></div>
-      <div class="categoria-item"><img src="imagenes/Aseo_y_cuidado_personal.jpg" alt="Aseo y Cuidado Personal"><p>Aseo y Cuidado Personal</p></div>
-      <div class="categoria-item"><img src="imagenes/Naturales_y_homeopaticos.jpg" alt="Naturales y Homeopáticos"><p>Naturales y Homeopáticos</p></div>
-      <div class="categoria-item"><img src="imagenes/Alimentos_y_bebidas.jpg" alt="Alimentos y Bebidas"><p>Alimentos y Bebidas</p></div>
-      <div class="categoria-item"><img src="imagenes/suplementos.jpg" alt="Suplementos"><p>Suplementos y Vitaminas</p></div>
-      <div cla
+    <div class="categorias-grid">
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="categoria-columna">
+        <div class="categoria-item">
+          <img src="imagenes/farmacia.jpg" alt="Farmacia">
+          <p>Farmacia</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/Maternidad_y_bebes.jpg" alt="Maternidad y Bebés">
+          <p>Maternidad y Bebés</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/Dermatologicos.jpg" alt="Dermocosmética">
+          <p>Dermocosmética</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/Belleza.jpg" alt="Belleza">
+          <p>Belleza</p>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="categoria-columna">
+        <div class="categoria-item">
+          <img src="imagenes/Aseo_y_cuidado_personal.jpg" alt="Aseo y Cuidado Personal">
+          <p>Aseo y Cuidado Personal</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/Naturales_y_homeopaticos.jpg" alt="Naturales y Homeopáticos">
+          <p>Naturales y Homeopáticos</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/Alimentos_y_bebidas.jpg" alt="Alimentos y Bebidas">
+          <p>Alimentos y Bebidas</p>
+        </div>
+        
+        <div class="categoria-item">
+          <img src="imagenes/suplementos.jpg" alt="Suplementos">
+          <p>Suplementos y Vitaminas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Asesoría -->
+  <section class="asesoria">
+    <div class="asesoria-box">
+      <img src="imagenes/Asesoria y consulta farmaceutica.png" alt="Asesoría farmacéutica">
+      <div>
+        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">Asesoría Farmacéutica Profesional</h3>
+        <p>Nuestro equipo de farmacéuticos certificados está disponible para brindarte la mejor orientación sobre medicamentos, tratamientos y cuidados de salud. ¡Consulta sin compromiso!</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
