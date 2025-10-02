@@ -1,29 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const ventas = JSON.parse(localStorage.getItem("ventas")) || [];
-  const inventario = JSON.parse(localStorage.getItem("inventario")) || [];
+  const tablaBody = document.querySelector("#tablaReportes tbody");
+  const ctx = document.getElementById("grafico").getContext("2d");
 
-  const listaVentas = document.getElementById("listaVentas");
-  const listaAgotados = document.getElementById("listaAgotados");
 
-  if (ventas.length === 0) {
-    listaVentas.innerHTML = "<li>No hay ventas registradas aún.</li>";
-  } else {
-    ventas.forEach(v => {
-      const li = document.createElement("li");
-      li.textContent = `${v.producto} vendido el ${v.fecha}`;
-      listaVentas.appendChild(li);
-    });
-  }
+  let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-  const agotados = inventario.filter(p => p.stock === 0);
-  if (agotados.length === 0) {
-    listaAgotados.innerHTML = "<li>No hay productos agotados.</li>";
-  } else {
-    agotados.forEach(p => {
-      const li = document.createElement("li");
-      li.textContent = `${p.producto} - Agotado`;
-      li.classList.add("agotado");
-      listaAgotados.appendChild(li);
+
+  tablaBody.innerHTML = "";
+  productos.forEach(item => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td>${item.nombre}</td>
+      <td>${item.stock}</td>
+    `;
+    tablaBody.appendChild(fila);
+  });
+
+ 
+  if (productos.length > 0) {
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: productos.map(p => p.nombre),
+        datasets: [{
+          label: "Stock Disponible",
+          data: productos.map(p => p.stock),
+          backgroundColor: ["#74b9ff", "#a3e4d7", "#fab1a0", "#ffeaa7", "#55efc4"]
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
     });
   }
 });
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar Sesión</title>
+  <title>Registro de Usuario</title>
   <link rel="stylesheet" href="estilos.css">
   <script defer src="script.js"></script>
   <style>
@@ -48,7 +48,7 @@
       font-size: 14px;
     }
 
-    input {
+    input, select {
       padding: 0.5rem;
       border-radius: 0.5rem;
       border: 1px solid #dcdde1;
@@ -90,17 +90,37 @@
 </head>
 <body>
   <div class="main">
-    <h2>Iniciar Sesión</h2>
-    <form id="loginForm">
+    <h2>Registra tu cuenta</h2>
+    <form id="registroForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required />
+      <small id="errorNombre" class="error"></small>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" required />
+      <small id="errorApellido" class="error"></small>
+
       <label for="email">Email:</label>
-      <input type="email" id="loginEmail" required />
-      <small id="errorLoginEmail" class="error"></small>
+      <input type="email" id="email" required />
+      <small id="errorEmail" class="error"></small>
 
       <label for="clave">Contraseña:</label>
-      <input type="password" id="loginClave" required minlength="4" />
-      <small id="errorLoginClave" class="error"></small>
+      <input type="password" id="clave" required minlength="4" />
+      <small id="errorClave" class="error"></small>
 
-      <button type="submit">Entrar</button>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" maxlength="10" required />
+      <small id="errorTelefono" class="error"></small>
+
+      <label for="genero">Género:</label>
+      <select id="genero" required>
+        <option value="">Seleccione...</option>
+        <option value="Hombre">Hombre</option>
+        <option value="Mujer">Mujer</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <button type="submit">Registrar</button>
     </form>
 
     <div class="volver">

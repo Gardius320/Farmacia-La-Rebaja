@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(150deg,#7AB6F5,#B88FE0);
+    }
+
+    .main {
+      background: #fff;
+      width: 400px;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      border: 4px solid;
+      border-image: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0) 1;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2d3436;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .volver {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h2>Mi Cuenta</h2>
+    <div id="datosUsuario"></div>
+
+    <button id="cerrarSesion">Cerrar Sesión</button>
+
+    <div class="volver">
+      <a href="drogaslarebaja.html">
+        <button type="button">⬅️ Volver al Inicio</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const datosUsuario = document.getElementById("datosUsuario");
+      const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+
+      if (usuarioLogeado) {
+        datosUsuario.innerHTML = `
+          <p><strong>Nombre:</strong> ${usuarioLogeado.nombre}</p>
+          <p><strong>Apellido:</strong> ${usuarioLogeado.apellido}</p>
+          <p><strong>Email:</strong> ${usuarioLogeado.email}</p>
+          <p><strong>Teléfono:</strong> ${usuarioLogeado.telefono}</p>
+          <p><strong>Género:</strong> ${usuarioLogeado.genero}</p>
+        `;
+      } else {
+        datosUsuario.innerHTML = `<p>No has iniciado sesión.</p>`;
+      }
+
+      const btnCerrar = document.getElementById("cerrarSesion");
+      btnCerrar.addEventListener("click", () => {
+        localStorage.removeItem("usuarioLogeado");
+        alert("Has cerrado sesión.");
+        window.location.href = "drogaslarebaja.html";
+      });
+    });
+  </script>
+</body>
+</html>
