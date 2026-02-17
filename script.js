@@ -1,36 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  const miCuenta = document.getElementById("miCuenta");
-  if (miCuenta) {
-    miCuenta.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "registro.html"; 
-    });
+
+  const loginLink = document.getElementById("loginLink");
+  const miCuentaLink = document.getElementById("miCuentaLink");
+  const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+
+  if (usuarioLogeado) {
+
+    if (loginLink) loginLink.style.display = "none";
+    if (miCuentaLink) {
+      miCuentaLink.style.display = "inline";
+      miCuentaLink.href = "miCuenta.html"; 
+    }
+  } else {
+
+    if (miCuentaLink) miCuentaLink.style.display = "none";
+    if (loginLink) {
+      loginLink.style.display = "inline";
+      loginLink.href = "login.html";
+    }
   }
 
-  
-  const form = document.getElementById("registroForm");
-  if (form) {
-    
+
+  const registroForm = document.getElementById("registroForm");
+
+  if (registroForm) {
     const successMsg = document.createElement("p");
     successMsg.id = "successMsg";
     successMsg.style.color = "green";
     successMsg.style.fontWeight = "bold";
-    form.appendChild(successMsg);
+    registroForm.appendChild(successMsg);
 
-    form.addEventListener("submit", (e) => {
+    registroForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      
       const nombre = document.getElementById("nombre").value.trim();
       const apellido = document.getElementById("apellido").value.trim();
       const email = document.getElementById("email").value.trim();
       const clave = document.getElementById("clave").value.trim();
       const telefono = document.getElementById("telefono").value.trim();
+      const genero = document.getElementById("genero").value;
 
       let valido = true;
 
-      
+
       if (nombre === "") {
         document.getElementById("errorNombre").innerText = "El nombre es obligatorio";
         valido = false;
@@ -58,21 +70,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!valido) return;
 
-     
+  
       const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-      usuarios.push({ nombre, apellido, email, clave, telefono });
+
+
+      const existe = usuarios.find((u) => u.email === email);
+      if (existe) {
+        alert("⚠️ Este email ya está registrado. Intenta con otro.");
+        return;
+      }
+
+      usuarios.push({ nombre, apellido, email, clave, telefono, genero });
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-     
       successMsg.innerText = "✅ Usuario registrado con éxito";
 
-     
-      form.reset();
+      registroForm.reset();
 
-      
       setTimeout(() => {
         successMsg.innerText = "";
-      }, 3000);
+        window.location.href = "login.html"; 
+      }, 2000);
+    });
+  }
+
+
+  const loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value.trim();
+      const clave = document.getElementById("loginClave").value.trim();
+
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+      const usuario = usuarios.find((u) => u.email === email && u.clave === clave);
+
+      if (!usuario) {
+        alert("❌ Email o contraseña incorrectos");
+        return;
+      }
+
+      localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
+
+      alert("✅ Bienvenido " + usuario.nombre);
+      window.location.href = "drogaslarebaja.html"; 
     });
   }
 });

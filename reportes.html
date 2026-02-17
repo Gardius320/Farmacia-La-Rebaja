@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reportes - Droguería</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="reportes.js" defer></script>
   <style>
     body { background: #f8f9fa; font-family: 'Poppins', sans-serif; }
 
+    h2 {
+      text-align: center;
+      color: #410efa;
+      margin: 1.5rem 0;
+    }
+
     .contenedor {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       background: #fff;
       padding: 2rem;
@@ -18,45 +25,66 @@
       box-shadow: 0 4px 12px rgba(0,0,0,.1);
     }
 
-    h2, h3 {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
       text-align: center;
-      color: #410efa;
-      margin-bottom: 1rem;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    th {
+      background: #410efa;
+      color: #fff;
     }
 
-    ul li {
-      background: #f1f1f1;
-      margin: 6px 0;
-      padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    #grafico {
+      margin-top: 2rem;
     }
 
-    .agotado { color: red; font-weight: bold; }
+    button {
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
   <div class="contenedor">
-    <h2>📊 Reportes</h2>
+    <h2>📊 Reporte de Inventario</h2>
 
-    <h3>Ventas realizadas</h3>
-    <ul id="listaVentas"></ul>
+   
+    <table id="tablaReportes">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Stock Disponible</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-    <h3>Productos agotados</h3>
-    <ul id="listaAgotados"></ul>
+   
+    <canvas id="grafico"></canvas>
 
-    <div style="text-align:center; margin-top:1.5rem;">
-      <a href="drogaslarebaja.html">
-        <button style="padding:10px 20px; border:none; border-radius:8px; background:linear-gradient(45deg,#74b9ff,#a3e4d7,#fab1a0); color:white; font-weight:bold; cursor:pointer;">
-          ⬅️ Volver al Inicio
-        </button>
-      </a>
+ 
+    <div style="text-align:center;">
+      <a href="drogaslarebaja.html"><button>⬅️ Volver al Inicio</button></a>
     </div>
   </div>
 </body>
 </html>
+

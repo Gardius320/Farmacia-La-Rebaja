@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droguería La Rebaja</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Librería de animaciones AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="main-header">
+      <!-- Botón menú hamburguesa -->
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      <div class="logo">
+        <img src="imagenes/Logo.jpg.jpeg" alt="Logo La Rebaja">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="¿Qué estás buscando?">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="user-links">
+        <a href="#"><i class="fas fa-shopping-cart"></i> Carrito</a>
+      </div>
+    </div>
+    <!-- Menú lateral -->
+    <nav class="side-menu" id="sideMenu">
+      <button class="close-btn" id="closeMenu">&times;</button>
+      <ul>
+        <li><a href="drogaslarebaja.html">🏠 Inicio</a></li>
+        <li><a href="registro.html">📝 Registrar Usuario</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+        <li><a href="inventario.html">📦 Inventario</a></li>
+        <li><a href="reportes.html">📊 Reportes</a></li>
+        <li><a href="contacto.html">📞 Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SLIDER -->
+  <section class="slider" id="slider" data-aos="fade-up">
+    <div class="slide active"><img src="imagenes/Banner_principal_pagina.jpg" alt="Banner 1"></div>
+    <div class="slide"><img src="imagenes/banner_secundario.jpg" alt="Banner 2"></div>
+    <div class="slide"><img src="imagenes/Banner_3.jpg" alt="Banner 3"></div>
+    <!-- Botones de navegación -->
+    <button class="prev" id="prevBtn">&#10094;</button>
+    <button class="next" id="nextBtn">&#10095;</button>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias" data-aos="fade-up" data-aos-duration="1000">
+    <h2>🌟 Categorías</h2>
+    <div class="categorias-carousel" id="categoriasCarousel">
+      <div class="categoria-item"><img src="imagenes/farmacia.jpg" alt=""><p>Farmacia</p></div>
+      <div class="categoria-item"><img src="imagenes/Maternidad_y_bebes.jpg" alt=""><p>Bebés</p></div>
+      <div class="categoria-item"><img src="imagenes/Dermatologicos.jpg" alt=""><p>Dermocosmética</p></div>
+      <div class="categoria-item"><img src="imagenes/Belleza.jpg" alt=""><p>Belleza</p></div>
+      <div class="categoria-item"><img src="imagenes/Aseo_y_cuidado_personal.jpg" alt=""><p>Aseo Personal</p></div>
+      <div class="categoria-item"><img src="imagenes/suplementos.jpg" alt=""><p>Suplementos</p></div>
+      <div class="categoria-item"><img src="imagenes/salud_sexual.jpg" alt=""><p>Salud Sexual</p></div>
+      <div class="categoria-item"><img src="imagenes/Ortopedia_y_movilidad.jpg" alt=""><p>Ortopedia</p></div>
+      <div class="categoria-item"><img src="imagenes/Alimentos_y_bebidas.jpg" alt=""><p>Alimentos</p></div>
+      <div class="categoria-item"><img src="imagenes/Naturales_y_homeopaticos.jpg" alt=""><p>Naturales</p></div>
+    </div>
+  </section>
+
+  <!-- OFERTAS DESTACADAS -->
+  <section class="productos" data-aos="fade-up" data-aos-duration="1000">
+    <h2>🔥 Ofertas Destacadas</h2>
+    <div class="grid-productos">
+      <div class="producto" data-aos="zoom-in"><img src="imagenes/producto1.jpg" alt="Producto 1"><h3>Ensure Advance</h3><p class="precio">$128.960 <span class="antes">$161.200</span></p><button>Agregar al carrito</button></div>
+      <div class="producto" data-aos="zoom-in"><img src="imagenes/producto2.jpg" alt="Producto 2"><h3>Acid Mantle Baby</h3><p class="precio">$38.320 <span class="antes">$47.900</span></p><button>Agregar al carrito</button></div>
+      <div class="producto" data-aos="zoom-in"><img src="imagenes/producto3.jpg" alt="Producto 3"><h3>Umbrella Gel FPS 50</h3><p class="precio">$99.820 <span class="antes">$133.100</span></p><button>Agregar al carrito</button></div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section class="novedades" data-aos="fade-up">
+    <h2>🆕 Novedades</h2>
+    <div class="grid-productos">
+      <div class="producto" data-aos="fade-right"><img src="imagenes/producto4.jpg" alt="Producto 4"><h3>Dolex Gripa</h3><p class="precio">$59.900</p><button>Agregar al carrito</button></div>
+      <div class="producto" data-aos="fade-left"><img src="imagenes/producto5.jpg" alt="Producto 5"><h3>Noxpirin Spray</h3><p class="precio">$74.500</p><button>Agregar al carrito</button></div>
+    </div>
+  </section>
+
+  <!-- MÁS VENDIDOS -->
+  <section class="mas-vendidos" data-aos="fade-up">
+    <h2>⭐ Más Vendidos</h2>
+    <div class="grid-productos">
+      <div class="producto" data-aos="zoom-in"><img src="imagenes/producto6.jpg" alt="Producto 6"><h3>Producto Más vendido Acetaminofén</h3><p class="precio">$45.000</p><button>Agregar al carrito</button></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" data-aos="fade-up">
+    <h2>💊 Servicios</h2>
+    <div class="grid-servicios">
+      <div class="servicio" data-aos="flip-left"><img src="imagenes/Asesoria.jpg" alt="Asesoría"><h3>Asesoría Farmacéutica</h3><p>Consulta en línea con expertos en salud.</p></div>
+      <div class="servicio" data-aos="flip-right"><img src="imagenes/Naturales_y_homeopaticos.jpg" alt="Naturales"><h3>Productos Naturales</h3><p>La mejor línea de productos naturales y homeopáticos.</p></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" data-aos="fade-up">
+    <h2>📩 Suscríbete</h2>
+    <p>Recibe nuestras ofertas y promociones directamente en tu correo.</p>
+    <form>
+      <input type="email" placeholder="Ingresa tu correo">
+      <button type="submit">Suscribirse</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="info-footer">
+      <div>
+        <h4>¿Quiénes Somos?</h4>
+        <p>La droguería virtual que siempre está contigo, 24/7. Medicamentos, cuidado personal y mucho más.</p>
+      </div>
+      <div>
+        <h4>Contáctanos</h4>
+        <p>Teléfono: 320 305 0595 <br> Email: servicio_cliente@larebaja.com</p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <p>
+          <a href="#">Facebook</a> |
+          <a href="#">Instagram</a> |
+          <a href="#">Twitter</a>
+        </p>
+      </div>
+    </div>
+    <div class="copy">
+      <p>&copy; 2025 Droguería La Rebaja. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Inicializar animaciones -->
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
